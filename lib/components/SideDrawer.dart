@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterplayground/routes/Routes.dart';
+import 'package:flutterplayground/screens/ButtonsScreen.dart';
+import 'package:flutterplayground/screens/HomeScreen.dart';
+
 class SideDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,7 +15,10 @@ class SideDrawer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Image.asset("assets/images/flutter-sidedrawer-banner.png",width: 120,),
+                Image.asset(
+                  "assets/images/flutter-sidedrawer-banner.png",
+                  width: 120,
+                ),
                 Text("Widgets Showcase",
                     style: TextStyle(
                         fontSize: 20,
@@ -20,22 +27,37 @@ class SideDrawer extends StatelessWidget {
               ],
             ),
           ),
-          ListTile(
-            title: Row(
-              children: <Widget>[
-                Icon(Icons.touch_app),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12),
-                  child: Text("Buttons"),
-                )
-              ],
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
+          _createDrawerItem(
+              icon: Icons.home,
+              text: "Home",
+              onTap: () {
+                Navigator.pushReplacementNamed(context, Routes.home);
+              }),
+          _createDrawerItem(
+              icon: Icons.touch_app,
+              text: "Buttons",
+              onTap: () {
+                Navigator.pushReplacementNamed(context, Routes.buttons);
+              }),
+
+        ],
+      ),
+    );
+  }
+
+  Widget _createDrawerItem(
+      {IconData icon, String text, GestureTapCallback onTap}) {
+    return ListTile(
+      title: Row(
+        children: <Widget>[
+          Icon(icon),
+          Padding(
+            padding: EdgeInsets.only(left: 8.0),
+            child: Text(text),
           )
         ],
       ),
+      onTap: onTap,
     );
   }
 }

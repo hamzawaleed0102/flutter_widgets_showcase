@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
-class HomeScreen extends StatelessWidget{
+import 'package:flutterplayground/components/SideDrawer.dart';
+
+class HomeScreen extends StatelessWidget {
+  static const String routeName = "/home";
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            'Home Page',
-          ),
-        ],
+    return Scaffold(
+      drawer: SideDrawer(),
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Home Page',
+            ),
+          ],
+        ),
       ),
     );
   }
