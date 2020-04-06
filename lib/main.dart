@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutterplayground/components/SideDrawer.dart';
 import 'package:flutterplayground/routes/Routes.dart';
 import 'package:flutterplayground/screens/ButtonsScreen.dart';
+import 'package:flutterplayground/screens/CardsScreen.dart';
 import 'package:flutterplayground/screens/HomeScreen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Index());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class Index extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,24 +15,22 @@ class MyApp extends StatelessWidget {
       routes: {
         Routes.home: (context) => HomeScreen(),
         Routes.buttons: (context) => ButtonsScreen(),
+        Routes.cards: (context) => CardsScreen(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: App(),
     );
-  }
+}
 }
 
-class MyHomePage extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: SideDrawer(),
-        appBar: AppBar(
-          backgroundColor: Colors.cyan,
-          title: Text('Flutter Showcase'),
-        ),
-        body: HomeScreen());
+      drawer: SideDrawer(),
+      body: HomeScreen(),
+    );
   }
 }

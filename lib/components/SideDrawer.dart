@@ -31,15 +31,24 @@ class SideDrawer extends StatelessWidget {
               icon: Icons.home,
               text: "Home",
               onTap: () {
+                Navigator.pop(context);
                 Navigator.pushReplacementNamed(context, Routes.home);
               }),
           _createDrawerItem(
               icon: Icons.touch_app,
               text: "Buttons",
               onTap: () {
+                Navigator.pop(context);
                 Navigator.pushReplacementNamed(context, Routes.buttons);
               }),
-
+          _createDrawerItem(
+              icon: Icons.image,
+              text: "Cards",
+              onTap: () {
+                print('asdf');
+                Navigator.pop(context);
+                Navigator.pushReplacementNamed(context, Routes.cards);
+              }),
         ],
       ),
     );
