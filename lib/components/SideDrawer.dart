@@ -42,13 +42,21 @@ class SideDrawer extends StatelessWidget {
                 Navigator.pushReplacementNamed(context, Routes.buttons);
               }),
           _createDrawerItem(
-              icon: Icons.image,
-              text: "Cards",
-              onTap: () {
-                print('asdf');
-                Navigator.pop(context);
-                Navigator.pushReplacementNamed(context, Routes.cards);
-              }),
+            icon: Icons.image,
+            text: "Images",
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, Routes.cards);
+            },
+          ),
+          _createDrawerItem(
+            icon: Icons.text_fields,
+            text: "Forms",
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, Routes.forms);
+            },
+          )
         ],
       ),
     );
