@@ -9,32 +9,13 @@ class FormsScreen extends StatefulWidget {
   @override
   _FormsScreen createState() => _FormsScreen();
 }
-Future<void> _ackAlert(BuildContext context) {
-  return showDialog<void>(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text('Success'),
-        content: const Text('Form validated successfully!'),
-        actions: <Widget>[
-          FlatButton(
-            child: Text('Ok'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
-  );
-}
 
 class _FormsScreen extends State<FormsScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _scaffoldKey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   SignupModel model = new SignupModel();
-  AlertDialog dialog=new AlertDialog();
+  AlertDialog dialog = new AlertDialog();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,6 +114,7 @@ class _FormsScreen extends State<FormsScreen> {
                         val != model.password) {
                       return "Password does not match";
                     }
+                    _formKey.currentState.save();
                     return null;
                   },
                 ),
@@ -142,7 +124,9 @@ class _FormsScreen extends State<FormsScreen> {
                   color: Colors.blue,
                   onPressed: () {
                     if (_formKey.currentState.validate()) {
-                      _ackAlert(context);
+                      final snackBar = SnackBar(
+                          content: Text('Form validated successfully!'));
+                      _scaffoldKey.currentState.showSnackBar(snackBar);
                     }
                   },
                   child: Text(
