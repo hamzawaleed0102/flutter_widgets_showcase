@@ -56,6 +56,14 @@ class SideDrawer extends StatelessWidget {
               Navigator.pop(context);
               Navigator.pushReplacementNamed(context, Routes.forms);
             },
+          ),
+          _createDrawerItem(
+            icon: Icons.tab,
+            text: "Tabs",
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, Routes.tabs);
+            },
           )
         ],
       ),

@@ -5,6 +5,7 @@ import 'package:flutterplayground/screens/ButtonsScreen.dart';
 import 'package:flutterplayground/screens/FormsScreen.dart';
 import 'package:flutterplayground/screens/ImagesScreen.dart';
 import 'package:flutterplayground/screens/HomeScreen.dart';
+import 'package:flutterplayground/screens/TabsScreen.dart';
 import 'package:flutterplayground/screens/ViewArticle.dart';
 
 void main() => runApp(Index());
@@ -20,7 +21,7 @@ class Index extends StatelessWidget {
         Routes.cards: (context) => ImagesScreen(),
         Routes.viewArticle: (context) => ViewArticle(ModalRoute.of(context).settings.arguments),
         Routes.forms: (context) => FormsScreen(),
-
+        Routes.tabs: (context) => TabsScreen(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
