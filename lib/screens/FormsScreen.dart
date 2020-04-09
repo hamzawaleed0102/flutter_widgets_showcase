@@ -70,7 +70,6 @@ class _FormsScreen extends State<FormsScreen> {
                       filled: true,
                       hintText: "Last Name",
                       border: InputBorder.none),
-                  autovalidate: true,
                   validator: (String val) {
                     if (val.isEmpty) {
                       return "Enter a valid last name";
@@ -85,7 +84,6 @@ class _FormsScreen extends State<FormsScreen> {
                     border: OutlineInputBorder(),
                   ),
                   keyboardType: TextInputType.emailAddress,
-                  autovalidate: true,
                   validator: (String val) {
                     if (!validator.isEmail(val)) {
                       return "Enter a valid email address";
@@ -99,7 +97,6 @@ class _FormsScreen extends State<FormsScreen> {
                     labelText: "Password",
                     border: OutlineInputBorder(),
                   ),
-                  autovalidate: true,
                   validator: (String val) {
                     if (val.length < 7) {
                       return "Password should be minimum 7 characters";
@@ -129,7 +126,6 @@ class _FormsScreen extends State<FormsScreen> {
                     labelText: "Confirm Password",
                     focusColor: Colors.red,
                   ),
-                  autovalidate: true,
                   validator: (String val) {
                     if (val.length < 7) {
                       return "Password should be minimum 7 characters";
